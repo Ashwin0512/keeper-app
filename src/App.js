@@ -1,15 +1,13 @@
+import React, { useState } from 'react';
+import { HashRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Note from './components/Note';
 import Form from './components/Form';
-import { useState } from 'react';
 
-const notes = [
-    
-];
+const notes = []
   
-
 function App() {
 
   const [notesArray, setNotesArray] = useState(notes)
@@ -27,6 +25,7 @@ function App() {
   }
 
   return (
+    <Router basename="/">
     <div className='container'>
       <Header />
       <Form onAdd={addNote}/>
@@ -43,6 +42,7 @@ function App() {
         <Footer />
       </div>
     </div>
+    </ Router>
   );
 }
 
